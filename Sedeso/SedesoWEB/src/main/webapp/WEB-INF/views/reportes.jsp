@@ -12,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
-<title>Cuernavaca</title>
+<title>Cuernavaca - Reportes</title>
 <spring:url value="/resources" var="urlPublic" />
 <spring:url value="/" var="urlRoot" />
 
@@ -26,35 +26,21 @@
 			<h1 class="display-3">
 				<b>Descarga tu reporte!</b>
 			</h1>
-			<p class="lead">Solo ingresa tu nombre de usuario!</p>
+			<p class="lead">Selecciona y empiza a descargar!</p>
 		</div>
 	</div>
-	<form action="consultaReportes" method="GET" id="ConsultarRegistro">
+	<form action="consultaReportes" method="get" name="ConsultarRefistro">
 		<div class="container">
-			<div class="row">
-				<div class="form-group col-2">
-					<label for="exampleInputEmail1">Usuario:</label> <input type="text"
-						class="form-control" id="usuario" aria-describedby="usuarioHelp">
-					<small id="usuarioHelp" class="form-text text-muted">Use el
-						usuario que creo en su aplicacion.</small>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-2">
-					<button type="button" class="btn btn-primary" onclick="entrar()">Entrar</button>
-				</div>
-			</div>
+			
 		</div>
 
 	</form>
-	<div class="container">
-		<div id="resultContainer" style="display: none;">
-			<hr />
-			<h4 style="color: green;">Documentos</h4>
-			<pre style="color: green;">
-		     <code></code>
-		    </pre>
-		</div>
+	<div id="resultContainer" style="display: none;">
+		<hr />
+		<h4 style="color: green;">JSON Response From Server</h4>
+		<pre style="color: green;">
+    <code></code>
+   </pre>
 	</div>
 	<script src="${ urlPublic }/js/utils/Utils.js"></script>
 	<script src="${ urlPublic }/js/jquery/jquery3.4.1.js"></script>
