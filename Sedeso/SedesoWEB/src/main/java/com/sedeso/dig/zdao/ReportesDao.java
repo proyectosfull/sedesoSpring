@@ -20,7 +20,7 @@ public class ReportesDao implements IReportesDao{
 	public List<String> consultaDirReporte(String user) throws Exception {
 		// TODO Auto-generated method stub
 		List<String> a= new ArrayList<String>();
-		File ruta = new File("C:\\Reportes\\"+user);
+		File ruta = new File("D:\\Reportes\\"+user);
 		if (ruta.exists()){
 			logger.info(ruta.toString());
 			logger.info(user);

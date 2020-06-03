@@ -17,7 +17,7 @@ function entrar() {
 				var download="download";
 				$.each(data, function(i, order){
 					var nombre = data[i]; 
-					var pos = nombre.lastIndexOf("/");
+					var pos = nombre.lastIndexOf("\\");
 					var nomFich;
 					if (pos > 0) nomFich = nombre.substr( pos + 1 ) ;
 					lista.append("<a href=download?url="+data[i]+ ">"+ nomFich +" </a> </br>");
