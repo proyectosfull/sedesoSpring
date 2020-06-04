@@ -1,11 +1,11 @@
 function entrar() {
-	    var frm = $('#ConsultarRegistro');
+	    //var frm = $('#ConsultarRegistro');
     	var data = {'usuario': $('#usuario').val()};
     	//Solo para post data = JSON.stringify(data)
 		$.ajax({
 			contentType: "application/json; charset=utf-8",
             dataType: "json",
-            url: frm.attr('action'),
+            url: "consultaReportes",
 			data : data,
 			
 			timeout : 100000,

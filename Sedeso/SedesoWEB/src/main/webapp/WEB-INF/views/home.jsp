@@ -29,7 +29,7 @@
 			<p class="lead">Solo ingresa tu nombre de usuario!</p>
 		</div>
 	</div>
-	<form action="consultaReportes" method="GET" id="ConsultarRegistro">
+	
 		<div class="container">
 			<div class="row">
 				<div class="form-group col-2">
@@ -46,7 +46,6 @@
 			</div>
 		</div>
 
-	</form>
 	<div class="container">
 		<div id="resultContainer" style="display: none;">
 			<hr />
