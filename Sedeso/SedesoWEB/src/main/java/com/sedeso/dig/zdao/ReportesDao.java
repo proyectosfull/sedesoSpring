@@ -22,15 +22,15 @@ public class ReportesDao implements IReportesDao {
 	@Override
 	public List<String> consultaDirReporte(String user) throws Exception {
 		// TODO Auto-generated method stub
-		List<String> a = new ArrayList<String>();
+		
 		File[]b;
 		File directorio = new File("C:\\Reportes\\" + user);
 		if (directorio.exists()) {
 			listf(directorio.toString());
-			return a;
+			return lista;
 		} else {
-			a.add("Sin archivos");
-			return a;
+			lista.add("Sin archivos");
+			return lista;
 		}
 		
 	}
@@ -43,10 +43,10 @@ public class ReportesDao implements IReportesDao {
 			if (file.isFile()) {
 				lista.add(file.getAbsolutePath());
 			} else if (file.isDirectory()) {
-				lista.add(file.getAbsolutePath());
+				listf(file.getAbsolutePath());
 			}
 		}
-		logger.info("Directorio: " + fList.toString());
+		logger.info("Directorio: " + fList[0].toString());
 	
 	}
 	public static <T> List<T> convertArrayToList(T File[]) 
