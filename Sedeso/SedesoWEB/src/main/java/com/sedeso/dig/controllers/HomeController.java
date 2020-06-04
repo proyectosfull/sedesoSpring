@@ -41,6 +41,10 @@ public class HomeController {
 	public String getHome(){
 		return "home";
 	}
+	@GetMapping( value ="reportes")
+	public String getReportes(){
+		return "reportes";
+	}
 
 	@ResponseBody
 	@GetMapping( value ="consultaReportes")
