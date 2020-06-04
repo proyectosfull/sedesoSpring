@@ -2,7 +2,7 @@ package com.sedeso.dig.controllers;
 
 import com.sedeso.dig.service.HomeService;
 import com.sedeso.dig.service.IHomeService;
-import com.sedeso.dig.zdao.UsuarioDao;
+import com.sedeso.dig.zdao.ListaDirectorio;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,6 +15,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,7 @@ public class HomeController {
 	@Autowired
 	private IHomeService iHomeService;
 	
+	
 	@GetMapping( value ="homes")
 	public String getHome(){
 		return "home";
@@ -44,14 +46,11 @@ public class HomeController {
 	@GetMapping( value ="consultaReportes")
 	public List<String> getReportes(Model model,@ModelAttribute("usuario") String user ) throws Exception {
 		//ModelAndView modeviewl = new ModelAndView("reportes");
-		
 		List<String> lista = new ArrayList<String>();
 		//lista.add("a");
+		
 		lista=	iHomeService.consultaReporte(user);
-		
 		//modeviewl.addObject("lista", a);
-		
-		
 		return lista;
 		
 	}
@@ -74,9 +73,11 @@ public class HomeController {
                 if (mimeType == null) {
                     mimeType = "application/octet-stream";
                 }
+                int inicio =url.lastIndexOf("\\");
+                String fin =url.substring(inicio+1);
  
                 response.setContentType(mimeType);
-                response.addHeader("Content-Disposition", "attachment; filename=" + url);
+                response.addHeader("Content-Disposition", "attachment; filename=" + fin);
                 response.setContentLength((int) file.length());
  
                 OutputStream os = response.getOutputStream();

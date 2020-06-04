@@ -5,30 +5,36 @@ import java.io.FileFilter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.net.ssl.HostnameVerifier;
+
 import java.util.*; 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.sedeso.dig.service.HomeService;
 
+
 @Component("reportesDao")
 public class ReportesDao implements IReportesDao {
 	private final Logger logger = LoggerFactory.getLogger(IReportesDao.class);
-	List<String> lista = new ArrayList<String>();
+	
 	
 	@Override
 	public List<String> consultaDirReporte(String user) throws Exception {
 		// TODO Auto-generated method stub
+		list.clear();
 		
-		File[]b;
 		File directorio = new File("C:\\Reportes\\" + user);
 		if (directorio.exists()) {
 			listf(directorio.toString());
-			return lista;
+			return list;
 		} else {
-			lista.add("Sin archivos");
-			return lista;
+			list.add("Sin archivos");
+			return list;
 		}
 		
 	}
@@ -39,7 +45,7 @@ public class ReportesDao implements IReportesDao {
 		File[] fList = directory.listFiles();
 		for (File file : fList) {
 			if (file.isFile()) {
-				lista.add(file.getAbsolutePath());
+				list.add(file.getAbsolutePath());
 			} else if (file.isDirectory()) {
 				listf(file.getAbsolutePath());
 			}

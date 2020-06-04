@@ -11,18 +11,44 @@ function entrar() {
 			timeout : 100000,
 			success : function(data) {
 				console.log("SUCCESS: ", data);
+				var divmostrar=$('#resultContainer');
+				if(divmostrar.is(":hidden")){
+					divmostrar.show();
+				}
 				
-				var lista=$('#resultContainer');
-				lista.toggle();
-				var download="download";
+				var lista=$('#resulList');
+				var listapadre=$('#resultContainer');
+				listapadre.empty();				
+				
+				//var download="download";
+				
 				$.each(data, function(i, order){
-					var nombre = data[i]; 
-					var pos = nombre.lastIndexOf("\\");
-					var nomFich;
-					if (pos > 0) nomFich = nombre.substr( pos + 1 ) ;
-					lista.append("<a href=download?url="+data[i]+ ">"+ nomFich +" </a> </br>");
+					var nombre = data[i];
+					var splits = nombre.split("\\");
+					var pos = $('#'+splits[3]+'');
+					if(pos.length){
+						
+					}else{
+						listapadre.append("<div id="+splits[3]+" > <h5 style=color:green> Reporte - "+splits[3]+" </h5></div>");
+					}
+					
+					
 				});
-			
+				
+				$.each(data, function(i, order){
+					
+					var nombre = data[i]; 
+//					var pos = nombre.lastIndexOf("\\");
+					var pos2 = nombre.split("\\");
+//					var nomFich;
+//					if (pos > 0) nomFich = nombre.substr( pos + 1 ) ;
+					var ls = $('#'+pos2[3]+'');	
+					if (ls.length){
+						ls.append("<a href=download?url="+data[i]+ ">"+pos2[4] +" </a> </br>");	
+					}
+					
+				});
+			data=null;
 			},
 			error : function(e) {
 				console.log("ERROR: ", e);

@@ -49,10 +49,11 @@
 	<div class="container">
 		<div id="resultContainer" style="display: none;">
 			<hr />
-			<h4 style="color: green;">Documentos</h4>
-			<pre style="color: green;">
-		     <code></code>
-		    </pre>
+			<!-- <h4 style="color: green;">Documentos</h4> -->
+			
+			<div  id="resulList">
+			
+			</div>
 		</div>
 	</div>
 	<script src="${ urlPublic }/js/utils/Utils.js"></script>
