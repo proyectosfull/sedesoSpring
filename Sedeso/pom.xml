@@ -29,13 +29,26 @@
 			<version.logclassic>1.1.7</version.logclassic>
 			<version.apachetomcat>4.5.2</version.apachetomcat>
 			<version.springsecurity>4.2.15.RELEASE</version.springsecurity>
+			<version.files>1.2.2</version.files>
+			<version.filescommon>2.4</version.filescommon>
 			<!-- Fin dependencias -->
 	  </properties>
 	  
 	  <!-- Dependencias -->
 	<dependencyManagement>
 		<dependencies>
-
+		
+		<dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+           	<version>${version.files}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${version.filescommon}</version>
+        </dependency>
+		 
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpclient</artifactId>

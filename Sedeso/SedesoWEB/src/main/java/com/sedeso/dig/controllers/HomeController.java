@@ -1,6 +1,7 @@
 package com.sedeso.dig.controllers;
 
 import com.sedeso.dig.service.HomeService;
+import com.sedeso.dig.service.IFilesService;
 import com.sedeso.dig.service.IHomeService;
 import com.sedeso.dig.zdao.ListaDirectorio;
 
@@ -29,12 +30,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
 	@Autowired
 	private IHomeService iHomeService;
+	
+	
+	@Autowired
+	private IFilesService iFileService;
 	
 	
 	@GetMapping( value ="homes")
@@ -44,6 +50,33 @@ public class HomeController {
 	@GetMapping( value ="reportes")
 	public String getReportes(){
 		return "reportes";
+	}
+	
+	//Reportes
+	@PostMapping(value="reportes/upload")
+	public String uploadFileCuerna(
+			@RequestParam("fotoUno") MultipartFile fotoUnos,
+			@RequestParam("fotoDos") MultipartFile fotoDoss,
+			@RequestParam("fotoTres") MultipartFile fotoTress,
+			@RequestParam("fotoCuatro") MultipartFile fotoCuatros,
+			@RequestParam("fotoCinco") MultipartFile fotoCincos,
+			
+			@RequestParam("nombBenef") String nombBenef,
+			@RequestParam("telContact") String telContact,
+			@RequestParam("email") String email,
+			@RequestParam("beneficiariosDom") String beneficiariosDom,
+			@RequestParam("observVisit") String observVisit,
+			@RequestParam("usuario") String usuario,
+			
+			Model model
+			) throws Exception{
+		if(iFileService.insertFiles(fotoUnos, fotoDoss, fotoTress, fotoCuatros, fotoCincos,nombBenef, telContact, email, beneficiariosDom, observVisit, usuario)){			
+			model.addAttribute("resultado", "OK");
+		}else{
+			model.addAttribute("resultado", "NOK");
+		}
+		
+		return "estatusReportes";
 	}
 
 	@ResponseBody

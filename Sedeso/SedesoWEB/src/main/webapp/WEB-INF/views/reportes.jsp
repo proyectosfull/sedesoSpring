@@ -3,6 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 <!doctype html>
 <html lang="es">
 <head>
@@ -21,6 +22,7 @@
 	href="${ urlPublic }/css/bootstrap/bootstrap.min.css" />
 </head>
 <body>
+<sf:form action="${urlRoot}reportes/upload"  enctype="multipart/form-data"  method="post">
 	<div class="container-fluid  py-6" style="background-color: darkred">
 		<div class="container text-white">
 			<h1 class="display-3">
@@ -34,8 +36,8 @@
 			
 			<div class="row">
 				<div class="form-group col-sm-6 col-md-6 col-lg-6">
-					<label for="text">Ingresa tu Uusario:</label> <input type="text"
-						class="form-control" placeholder="Usuario" id="usario" required>
+					<label for="text">Ingresa tu Uusario:</label> 
+					<input type="text" class="form-control" placeholder="Usuario" id="usuario" name="usuario" required>
 				</div>
 			</div>
 			<div class="row">
@@ -43,36 +45,32 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-sm">
-					<label for="text">Nombre del Beneficiario:</label> <input
-						type="text" class="form-control"
-						placeholder="Nombre del Beneficiario" id="nombBenef" >
+					<label for="text">Nombre del Beneficiario:</label> 
+					<input	type="text" class="form-control" placeholder="Nombre del Beneficiario" id="nombBenef" name="nombBenef">
 				</div>
 				<div class="form-group col-sm">
-					<label for="text">Teléfono de Contacto:</label> <input type="text"
-						class="form-control" placeholder="Teléfono de Contacto"
-						id="telContact">
+					<label for="text">Teléfono de Contacto:</label> 
+					<input type="text" class="form-control" placeholder="Teléfono de Contacto" id="telContact" name="telContact">
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-sm">
-					<label for="email">Correo Electrónico:</label> <input type="email"
-						class="form-control" placeholder="Correo Electrónico" id="email">
+					<label for="email">Correo Electrónico:</label> 
+					<input type="email" class="form-control" placeholder="Correo Electrónico" id="email" name="email">
 				</div>
 				<div class="form-group col-sm">
-					<label for="text">Prioridad:</label> <input type="text"
-						class="form-control" placeholder="Prioridad" id="prioridad">
+					<label for="text">Prioridad:</label> 
+					<input type="text" class="form-control" placeholder="Prioridad" id="prioridad">
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-sm">
-					<label for="text">Beneficiarios en el domicilio</label> <input
-						type="text" class="form-control"
-						placeholder="Beneficiarios en el domicilio" id="beneficiariosDom">
+					<label for="text">Beneficiarios en el domicilio</label> 
+					<input	type="text" class="form-control" placeholder="Beneficiarios en el domicilio" id="beneficiariosDom" name="beneficiariosDom">
 				</div>
 				<div class="form-group col-sm">
-					<label for="text">Observaciones del Visitador</label> <input
-						type="text" class="form-control"
-						placeholder="Observaciones del Visitador" id="observVisit">
+					<label for="text">Observaciones del Visitador</label> 
+					<input ype="text" class="form-control" placeholder="Observaciones del Visitador" id="observVisit" name="observVisit">
 				</div>
 			</div>
 			
@@ -86,18 +84,18 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-sm col-md-6 col-lg-4">
-					<input type="file" id="foto" aria-describedby="usuarioHelp">
+					<input type="file" name="fotoUno" id="fotoUno" aria-describedby="usuarioHelp">
 					<small id="usuarioHelp" class="form-text text-muted">Seleccione
 						primera foto</small>
 				</div>
 				<div class="form-group col-sm col-md-6 col-lg-4">
-					<input type="file" id="fotod" aria-describedby="usuarioHelp">
+					<input type="file" name="fotoDos" id="fotoDos" aria-describedby="usuarioHelp">
 					<small id="usuarioHelp" class="form-text text-muted">Seleccione
 						la segunda foto</small>
 				</div>
 
 				<div class="form-group col-sm col-md-6 col-lg-4">
-					<input type="file" id="fotot" aria-describedby="usuarioHelp">
+					<input type="file" name="fotoTres" id="fotoTres" aria-describedby="usuarioHelp">
 					<small id="usuarioHelp" class="form-text text-muted">Seleccione
 						la tercera foto</small>
 				</div>
@@ -109,12 +107,12 @@
 
 			<div class="row">
 				<div class="form-group col-sm col-md-6 col-lg-6">
-					<input type="file" id="fotot" aria-describedby="usuarioHelp">
+					<input type="file" name="fotoCuatro" id="fotoCuatro" aria-describedby="usuarioHelp">
 					<small id="usuarioHelp" class="form-text text-muted">Seleccione
 						un video</small>
 				</div>
 				<div class="form-group col-sm col-md-6 col-lg-6">
-					<input type="file" id="fotot" aria-describedby="usuarioHelp">
+					<input type="file" name="fotoCinco" id="fotoCinco" aria-describedby="usuarioHelp">
 					<small id="usuarioHelp" class="form-text text-muted">Seleccione
 						audio</small>
 				</div>
@@ -126,9 +124,10 @@
 					que los datos que se enviaran son los correctos.
 				</label>
 			</div>
-
-			<button  type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+			<input type="submit" value="Guardar cambios" class="btn btn-primary"/>
 		</div>
+		
+	</sf:form>	
 
 	
 	<div id="resultContainer" style="display: none;">
