@@ -31,7 +31,7 @@
 		<version.logclassic>1.1.7</version.logclassic>
 		<version.apachetomcat>4.5.2</version.apachetomcat>
 		<version.springsecurity>4.2.15.RELEASE</version.springsecurity>
-		<version.files>1.2.2</version.files>
+		<version.files>1.3.3</version.files>
 		<version.filescommon>2.4</version.filescommon>
 		<!-- Fin dependencias -->
 	</properties>
