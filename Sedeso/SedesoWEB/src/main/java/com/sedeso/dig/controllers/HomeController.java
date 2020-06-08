@@ -3,6 +3,7 @@ package com.sedeso.dig.controllers;
 import com.sedeso.dig.service.HomeService;
 import com.sedeso.dig.service.IFilesService;
 import com.sedeso.dig.service.IHomeService;
+import com.sedeso.dig.zdao.IUsuarioDAO;
 import com.sedeso.dig.zdao.ListaDirectorio;
 
 import java.io.File;
@@ -36,12 +37,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 	@Autowired
-	private IHomeService iHomeService;
-	
+	private IHomeService iHomeService;	
 	
 	@Autowired
 	private IFilesService iFileService;
 	
+	@Autowired
+	private IUsuarioDAO iUsuarioDAO;
 	
 	@GetMapping( value ="homes")
 	public String getHome(){
@@ -58,8 +60,8 @@ public class HomeController {
 			@RequestParam("fotoUno") MultipartFile fotoUnos,
 			@RequestParam("fotoDos") MultipartFile fotoDoss,
 			@RequestParam("fotoTres") MultipartFile fotoTress,
-			@RequestParam("fotoCuatro") MultipartFile fotoCuatros,
-			@RequestParam("fotoCinco") MultipartFile fotoCincos,
+			@RequestParam("fotoCuatro") MultipartFile video,
+			@RequestParam("fotoCinco") MultipartFile audio,
 			
 			@RequestParam("nombBenef") String nombBenef,
 			@RequestParam("telContact") String telContact,
@@ -70,7 +72,11 @@ public class HomeController {
 			
 			Model model
 			) throws Exception{
-		if(iFileService.insertFiles(fotoUnos, fotoDoss, fotoTress, fotoCuatros, fotoCincos,nombBenef, telContact, email, beneficiariosDom, observVisit, usuario)){			
+		
+		int usuarioid = iUsuarioDAO.consultaUsuario(usuario);
+		usuario = String.valueOf(usuarioid);
+		
+		if(iFileService.insertFiles(fotoUnos, fotoDoss, fotoTress, video, audio,nombBenef, telContact, email, beneficiariosDom, observVisit, usuario)){			
 			model.addAttribute("resultado", "OK");
 		}else{
 			model.addAttribute("resultado", "NOK");

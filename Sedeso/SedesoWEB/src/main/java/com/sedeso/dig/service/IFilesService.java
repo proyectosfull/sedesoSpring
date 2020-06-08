@@ -1,5 +1,7 @@
 package com.sedeso.dig.service;
 
+import java.sql.SQLException;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public interface IFilesService {
@@ -7,8 +9,8 @@ public interface IFilesService {
 	public boolean insertFiles(MultipartFile fileUno,
 							   MultipartFile fileDos,
 							   MultipartFile fileTres,
-							   MultipartFile fileCuatro,
-							   MultipartFile fileCinco, 
+							   MultipartFile fileVideo,
+							   MultipartFile fileAudio, 
 							   String nombBenef,
 							   String telContact,
 							   String email,
@@ -16,4 +18,5 @@ public interface IFilesService {
 							   String observVisit,
 							   String usuario								
 							   );
+	
 }
