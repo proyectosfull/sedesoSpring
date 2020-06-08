@@ -54,8 +54,8 @@ public class MultipartUtility {
                 "multipart/form-data; charset=" + charset + "; boundary=" + boundary);
         httpConn.setRequestProperty("User-Agent", "CodeJava Agent");
         httpConn.setRequestProperty("Test", "Bonjour");
-        //outputStream = httpConn.getOutputStream();
-        writer = new PrintWriter(new OutputStreamWriter( httpConn.getOutputStream(), charset),
+        outputStream = httpConn.getOutputStream();
+        writer = new PrintWriter(new OutputStreamWriter(outputStream, charset),
                 true);
     }
 

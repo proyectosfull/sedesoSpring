@@ -66,6 +66,7 @@ public class HomeController {
 			@RequestParam("nombBenef") String nombBenef,
 			@RequestParam("telContact") String telContact,
 			@RequestParam("email") String email,
+			@RequestParam("prioridad") String prioridad,
 			@RequestParam("beneficiariosDom") String beneficiariosDom,
 			@RequestParam("observVisit") String observVisit,
 			@RequestParam("usuario") String usuario,
@@ -76,7 +77,7 @@ public class HomeController {
 		int usuarioid = iUsuarioDAO.consultaUsuario(usuario);
 		usuario = String.valueOf(usuarioid);
 		
-		if(iFileService.insertFiles(fotoUnos, fotoDoss, fotoTress, video, audio,nombBenef, telContact, email, beneficiariosDom, observVisit, usuario)){			
+		if(iFileService.insertFiles(fotoUnos, fotoDoss, fotoTress, video, audio,nombBenef, telContact, email,prioridad, beneficiariosDom, observVisit, usuario)){			
 			model.addAttribute("resultado", "OK");
 		}else{
 			model.addAttribute("resultado", "NOK");

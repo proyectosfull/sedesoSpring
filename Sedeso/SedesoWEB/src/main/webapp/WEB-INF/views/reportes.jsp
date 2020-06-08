@@ -60,7 +60,7 @@
 				</div>
 				<div class="form-group col-sm">
 					<label for="text">Prioridad:</label> 
-					<input type="text" class="form-control" placeholder="Prioridad" id="prioridad">
+					<input type="text" class="form-control" placeholder="Prioridad" id="prioridad" name="prioridad">
 				</div>
 			</div>
 			<div class="row">

@@ -14,6 +14,7 @@ public interface IFilesService {
 							   String nombBenef,
 							   String telContact,
 							   String email,
+							   String prioridad,
 							   String beneficiariosDom,
 							   String observVisit,
 							   String usuario								

@@ -22,7 +22,7 @@ public class FilesService implements IFilesService{
 	
 	@Override
 	public boolean insertFiles(MultipartFile fileUno, MultipartFile fileDos, MultipartFile fileTres,
-			MultipartFile fileVideo, MultipartFile fileAudio, String nombBenef, String telContact, String email,
+			MultipartFile fileVideo, MultipartFile fileAudio, String nombBenef, String telContact, String email, String prioridad,
 			String beneficiariosDom, String observVisit, String usuario) {
 		
 		// TODO Auto-generated method stub
@@ -40,7 +40,7 @@ public class FilesService implements IFilesService{
 			File video =(fileVideo.getSize() > 0)? convert(fileVideo) : null;
 			File audio =(fileAudio.getSize() > 0)? convert(fileAudio) : null;
 			
-//			multipart = new MultipartUtility(url, charset);
+
 			
 			if (foto1 !=null && foto2 !=null && foto3 !=null) {
 				multipart.addFilePart("picture_file_1",foto1);
@@ -56,6 +56,14 @@ public class FilesService implements IFilesService{
 			if(audio != null) {
 				multipart.addFilePart("voice_file", audio);
 			}
+			
+			multipart.addFormField("params","1~~"+nombBenef);
+			multipart.addFormField("params","2~~"+telContact);
+			multipart.addFormField("params","3~~"+email);
+			multipart.addFormField("params","4~~"+prioridad);
+			multipart.addFormField("params","5~~"+beneficiariosDom);
+			multipart.addFormField("params","6~~"+observVisit);
+			
 			
 			multipart.addFormField("personalId", usuario);
 			multipart.addFormField("reportId", "1");
