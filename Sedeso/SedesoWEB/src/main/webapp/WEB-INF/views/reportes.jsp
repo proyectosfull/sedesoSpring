@@ -99,18 +99,18 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-sm">
-					<label for="text">Nombre:</label> <input type="text"
-						class="form-control" placeholder="Nombre" id="nombre"
+					<label for="text">Calle:</label> <input type="text"
+						class="form-control" placeholder="Calle" id="nombre"
 						name="nombre">
 				</div>
 				<div class="form-group col-sm">
-					<label for="text">Metros:</label> <input ype="text"
-						class="form-control" placeholder="Metros" id="metros"
+					<label for="text">Número:</label> <input ype="text"
+						class="form-control" placeholder="Número" id="metros"
 						name="metros">
 				</div>
 				<div class="form-group col-sm">
-					<label for="text">Domicilio:</label> <input ype="text"
-						class="form-control" placeholder="Domicilio" id="domicilio"
+					<label for="text">Colonia:</label> <input ype="text"
+						class="form-control" placeholder="Colonia" id="domicilio"
 						name="domicilio">
 				</div>
 			</div>
