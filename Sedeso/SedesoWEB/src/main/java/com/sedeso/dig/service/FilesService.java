@@ -23,7 +23,7 @@ public class FilesService implements IFilesService{
 	@Override
 	public boolean insertFiles(MultipartFile fileUno, MultipartFile fileDos, MultipartFile fileTres,
 			MultipartFile fileVideo, MultipartFile fileAudio, String nombBenef, String telContact, String email, String prioridad,
-			String beneficiariosDom, String observVisit, String usuario) {
+			String beneficiariosDom, String observVisit, String usuario,String lat, String lng, String nombre, String metros, String domicilio) {
 		
 		// TODO Auto-generated method stub
 	      String charset="UTF-8";
@@ -67,8 +67,13 @@ public class FilesService implements IFilesService{
 			
 			multipart.addFormField("personalId", usuario);
 			multipart.addFormField("reportId", "1");
-			multipart.addFormField("lat", "0");
-			multipart.addFormField("lng", "0");
+			multipart.addFormField("lat", lat);
+			multipart.addFormField("lng", lng);
+			multipart.addFormField("nombre", nombre);
+			multipart.addFormField("metros", metros);
+			multipart.addFormField("domicilio", domicilio);
+			
+			
 			List<String> response = multipart.finish();
 			StringBuilder builder = new StringBuilder();
 			for(String line: response)

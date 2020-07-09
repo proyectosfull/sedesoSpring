@@ -1,38 +1,29 @@
 package com.sedeso.dig.controllers;
 
-import com.sedeso.dig.service.HomeService;
 import com.sedeso.dig.service.IFilesService;
 import com.sedeso.dig.service.IHomeService;
 import com.sedeso.dig.zdao.IUsuarioDAO;
-import com.sedeso.dig.zdao.ListaDirectorio;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -71,13 +62,19 @@ public class HomeController {
 			@RequestParam("observVisit") String observVisit,
 			@RequestParam("usuario") String usuario,
 			
+			@RequestParam("lat") String lat,
+			@RequestParam("lng") String lng,
+			@RequestParam("nombre") String nombre,
+			@RequestParam("metros") String metros,
+			@RequestParam("domicilio") String domicilio,
+			
 			Model model
 			) throws Exception{
 		
 		int usuarioid = iUsuarioDAO.consultaUsuario(usuario);
 		usuario = String.valueOf(usuarioid);
 		
-		if(iFileService.insertFiles(fotoUnos, fotoDoss, fotoTress, video, audio,nombBenef, telContact, email,prioridad, beneficiariosDom, observVisit, usuario)){			
+		if(iFileService.insertFiles(fotoUnos, fotoDoss, fotoTress, video, audio,nombBenef, telContact, email,prioridad, beneficiariosDom, observVisit, usuario, lat, lng, nombre, metros, domicilio)){			
 			model.addAttribute("resultado", "OK");
 		}else{
 			model.addAttribute("resultado", "NOK");

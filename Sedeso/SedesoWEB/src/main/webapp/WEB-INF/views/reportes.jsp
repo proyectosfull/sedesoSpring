@@ -85,13 +85,16 @@
 				</div>
 			</div>
 			<div class="row">
+				<hr width=100% color="green">
+			</div>
+			<div class="row">
 				<div class="form-group col-sm">
 					<label for="text">Latitud:</label> <input type="text"
 						class="form-control" placeholder="Latitud" id="lat" name="lat">
 				</div>
 				<div class="form-group col-sm">
 					<label for="text">Longitud:</label> <input ype="text"
-						class="form-control" placeholder="Longitud" id="long" name="long">
+						class="form-control" placeholder="Longitud" id="lng" name="lng">
 				</div>
 			</div>
 			<div class="row">

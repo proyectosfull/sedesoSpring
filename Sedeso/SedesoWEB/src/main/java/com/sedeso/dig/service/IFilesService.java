@@ -17,7 +17,13 @@ public interface IFilesService {
 							   String prioridad,
 							   String beneficiariosDom,
 							   String observVisit,
-							   String usuario								
+							   String usuario,
+							   String lat,
+							   String lng,
+							   String nombre,
+							   String metros,
+							   String domicilio
+							   
 							   );
 	
 }
