@@ -37,7 +37,7 @@
 
 			<div class="row">
 				<div class="form-group col-sm-6 col-md-6 col-lg-6">
-					<label for="text">Ingresa tu Usario:</label> <input type="text"
+					<label for="text">Ingresa tu Usuario:</label> <input type="text"
 						class="form-control" placeholder="Usuario" id="usuario"
 						name="usuario" required>
 				</div>
