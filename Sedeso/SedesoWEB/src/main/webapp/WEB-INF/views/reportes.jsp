@@ -29,7 +29,7 @@
 				<h1 class="display-3">
 					<b>Envía tu reporte!</b>
 				</h1>
-				<p class="lead">Carga tus datos y envia el reporte</p>
+				<p class="lead">Carga tus datos y envia el reporte.</p>
 			</div>
 		</div>
 
