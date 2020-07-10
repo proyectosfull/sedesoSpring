@@ -89,6 +89,11 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-sm">
+					<p><b>Para buscar las coordenadas de tus direcciones puedes buscarlas en este link: </b><a href="https://www.coordenadas-gps.com/" target="_blank">Latitud y longitud</a></p>					
+				</div>	
+			</div>	
+			<div class="row">				
+				<div class="form-group col-sm">
 					<label for="text">Latitud:</label> <input type="text"
 						class="form-control" placeholder="Latitud" id="lat" name="lat">
 				</div>
