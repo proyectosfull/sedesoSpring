@@ -29,6 +29,9 @@ public class FilesService implements IFilesService{
 	      String charset="UTF-8";
 	      String url ="http://23.82.16.144:8080/SEDESO/Reporte?action=insertar";
 	      
+	      lat = (lat.equals("") || lat == null )? "0" : lat;
+	      lng = (lng.equals("") || lng == null )? "0" : lng;
+	      
 		boolean bGuardo = true;
 		try {
 			MultipartUtility multipart = new MultipartUtility(url, charset);
