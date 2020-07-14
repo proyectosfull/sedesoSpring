@@ -50,24 +50,24 @@
 					<label for="text">Nombre del Beneficiario:</label> <input
 						type="text" class="form-control"
 						placeholder="Nombre del Beneficiario" id="nombBenef"
-						name="nombBenef">
+						name="nombBenef" required>
 				</div>
 				<div class="form-group col-sm">
 					<label for="text">Teléfono de Contacto:</label> <input type="text"
 						class="form-control" placeholder="Teléfono de Contacto"
-						id="telContact" name="telContact">
+						id="telContact" name="telContact" required>
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-sm">
 					<label for="email">Correo Electrónico:</label> <input type="email"
 						class="form-control" placeholder="Correo Electrónico" id="email"
-						name="email">
+						name="email" required>
 				</div>
 				<div class="form-group col-sm">
 					<label for="text">Prioridad:</label> <input type="text"
 						class="form-control" placeholder="Prioridad" id="prioridad"
-						name="prioridad">
+						name="prioridad" required>
 				</div>
 			</div>
 			<div class="row">
@@ -75,13 +75,13 @@
 					<label for="text">Beneficiarios en el domicilio</label> <input
 						type="text" class="form-control"
 						placeholder="Beneficiarios en el domicilio" id="beneficiariosDom"
-						name="beneficiariosDom">
+						name="beneficiariosDom" required>
 				</div>
 				<div class="form-group col-sm">
 					<label for="text">Observaciones del Visitador</label> <input
 						ype="text" class="form-control"
 						placeholder="Observaciones del Visitador" id="observVisit"
-						name="observVisit">
+						name="observVisit" required>
 				</div>
 			</div>
 			<div class="row">
@@ -95,28 +95,28 @@
 			<div class="row">				
 				<div class="form-group col-sm">
 					<label for="text">Latitud:</label> <input type="text"
-						class="form-control" placeholder="Latitud" id="lat" name="lat">
+						class="form-control" placeholder="Latitud" id="lat" name="lat" required>
 				</div>
 				<div class="form-group col-sm">
 					<label for="text">Longitud:</label> <input ype="text"
-						class="form-control" placeholder="Longitud" id="lng" name="lng">
+						class="form-control" placeholder="Longitud" id="lng" name="lng" required>
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-sm">
 					<label for="text">Calle:</label> <input type="text"
 						class="form-control" placeholder="Calle" id="nombre"
-						name="nombre">
+						name="nombre" required>
 				</div>
 				<div class="form-group col-sm">
 					<label for="text">Número:</label> <input ype="text"
 						class="form-control" placeholder="Número" id="metros"
-						name="metros">
+						name="metros" required>
 				</div>
 				<div class="form-group col-sm">
 					<label for="text">Colonia:</label> <input ype="text"
 						class="form-control" placeholder="Colonia" id="domicilio"
-						name="domicilio">
+						name="domicilio" required>
 				</div>
 			</div>
 
